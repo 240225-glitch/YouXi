@@ -1,0 +1,44 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #eef6ff;
+  background:
+    radial-gradient(circle at top left, #243b80, transparent 35%),
+    radial-gradient(circle at bottom right, #5b2a86, transparent 35%),
+    #070b18;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.game-card {
+  width: min(980px, 100%);
+  padding: 24px;
+  border: 1px solid rgba(118, 214, 255, 0.35);
+  border-radius: 26px;
+  background: rgba(10, 18, 38, 0.82);
+}
+
+.game-world {
+  position: relative;
+  height: 360px;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(109, 232, 255, 0.5);
+  background: linear-gradient(135deg, #111a34, #120f2c 65%, #21123d);
+}
+
+.hero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px 16px 20px 20px;
+  background: linear-gradient(135deg, #65f4ff, #7b61ff);
+  border: 3px solid #e8fbff;
+  box-shadow: 0 0 22px rgba(101, 244, 255, 0.9);
+}
