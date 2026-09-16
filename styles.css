@@ -42,3 +42,27 @@ body {
   border: 3px solid #e8fbff;
   box-shadow: 0 0 22px rgba(101, 244, 255, 0.9);
 }
+
+#shard {
+  position: absolute;
+  left: 300px;
+  top: 180px;
+  font-size: 34px;
+  color: #ffe46a;
+  text-shadow: 0 0 14px #ffe46a;
+}
+
+#hud,
+#message {
+  color: white;
+}
+
+#hud {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #e8fbff;
+  text-shadow: 0 0 8px rgba(109, 232, 255, 0.7);
+}
