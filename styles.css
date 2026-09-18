@@ -43,6 +43,73 @@ body {
   box-shadow: 0 0 22px rgba(101, 244, 255, 0.9);
 }
 
+.obstacle {
+  position: absolute;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4b3f72, #2a1e4d);
+  border: 2px solid rgba(178, 132, 255, 0.6);
+  box-shadow:
+    0 0 16px rgba(123, 97, 255, 0.5),
+    inset 0 0 12px rgba(101, 244, 255, 0.25);
+}
+
+.block-one {
+  left: 260px;
+  top: 0;
+  width: 22px;
+  height: 120px;
+}
+
+.block-two {
+  left: 0;
+  top: 235px;
+  width: 200px;
+  height: 22px;
+}
+
+.block-three {
+  left: 480px;
+  top: 80px;
+  width: 22px;
+  height: 280px;
+}
+
+.goal {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  width: 96px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ffe46a;
+  border: 2px solid rgba(255, 228, 106, 0.7);
+  border-radius: 18px;
+  background: rgba(255, 228, 106, 0.08);
+  box-shadow:
+    0 0 20px rgba(255, 228, 106, 0.5),
+    inset 0 0 14px rgba(255, 228, 106, 0.2);
+}
+
+#resetBtn {
+  margin-top: 14px;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #e8fbff;
+  border: 1px solid rgba(109, 232, 255, 0.5);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #1c2e58, #31205e);
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(101, 244, 255, 0.35);
+}
+
+#resetBtn:hover {
+  background: linear-gradient(135deg, #243b80, #4b2a86);
+}
+
 #shard {
   position: absolute;
   left: 300px;
