@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L07 — Reaction Time Bot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cabinet">
+    <header class="marquee">
+      <h1>REACTION&nbsp;TIME&nbsp;BOT</h1>
+      <p class="subtitle">RACE VERSUS THE MACHINE &middot; 人与机器竞速</p>
+    </header>
+
+    <section class="scoreboard" aria-label="Scoreboard">
+      <div class="score player">
+        <span class="tag">PLAYER</span>
+        <span id="playerWin" class="wins">0</span>
+      </div>
+      <div class="score draw" id="drawTally">
+        <span class="tag">TIES</span>
+        <span id="drawCount" class="wins">0</span>
+      </div>
+      <div class="score bot">
+        <span class="tag">BOT</span>
+        <span id="botWin" class="wins">0</span>
+      </div>
+    </section>
+
+    <main class="arena">
+      <div id="statusLight" class="status" role="status" aria-live="polite">
+        <span id="roundLabel" class="round">ROUND 1</span>
+        <div id="badge" class="badge idle">WAITING</div>
+        <p id="hint" class="hint">按下 START 等待 GO</p>
+      </div>
+
+      <button id="startBtn" class="btn start">START&nbsp;/&nbsp;开始</button>
+      <button id="reactBtn" class="btn react" disabled>CLICK&nbsp;ON&nbsp;GO!</button>
+    </main>
+
+    <section class="results" aria-label="Results">
+      <div class="lane">
+        <span class="lane-label">PLAYER</span>
+        <span id="playerTime" class="time">--.-- ms</span>
+      </div>
+      <div class="lane">
+        <span class="lane-label">BOT</span>
+        <span id="botTime" class="time">--.-- ms</span>
+      </div>
+      <div id="winner" class="winner">ROUND READY</div>
+      <div id="history" class="history"></div>
+    </section>
+
+    <footer class="byline">HS COMPUTER SCIENCE · L07 · 姓名/Class: ____________</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
