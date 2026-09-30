@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L10 — Math Blaster Boss</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cabinet">
+    <header class="marquee">
+      <h1>MATH&nbsp;BLASTER</h1>
+      <p class="subtitle">BOSS FIGHT · 数学对战电脑 BOSS</p>
+    </header>
+
+    <section class="playerbar" aria-label="Player">
+      <label class="field">
+        <span>NAME / 姓名</span>
+        <input id="nameInput" type="text" maxlength="20" placeholder="Your name">
+      </label>
+      <label class="field">
+        <span>CLASS / 班级</span>
+        <input id="classInput" type="text" maxlength="12" placeholder="e.g. 10A">
+      </label>
+    </section>
+
+    <!-- STEP 1: boss health bar -->
+    <section class="hpwrap boss" aria-label="Boss health">
+      <div class="hpline">
+        <span class="hpname">BOSS / 电脑 BOSS</span>
+        <span class="hpnum"><b id="bossHpBox">100</b> / 100</span>
+      </div>
+      <div class="bar"><div id="bossBar" class="fill bossfill" style="width:100%"></div></div>
+    </section>
+
+    <section class="scoreboard" aria-label="Scoreboard">
+      <div class="score time"><span class="tag">TIME / 倒计时</span><span id="timeBox" class="num">30</span></div>
+      <div class="score streak"><span class="tag">STREAK / 连击</span><span id="streakBox" class="num">0</span></div>
+      <div class="score hits"><span class="tag">HITS / 命中</span><span id="hitsBox" class="num">0</span></div>
+      <div class="score mode"><span class="tag">MODE / 模式</span><span id="modeBox" class="num small">+ −</span></div>
+    </section>
+
+    <main class="arena">
+      <div id="status" class="status idle">PRESS START — 按开始后答题轰 BOSS</div>
+
+      <!-- STEP 1: question display -->
+      <div id="question" class="question" aria-label="Question">7 + 5 = ?</div>
+
+      <!-- STEP 1: answer input + submit button -->
+      <div class="answerrow">
+        <input id="answerInput" class="answerbox" type="text" inputmode="numeric"
+          placeholder="type answer / 输入答案" disabled>
+        <button id="fireBtn" class="btn fire" disabled>FIRE / 发射</button>
+      </div>
+
+      <div class="controls">
+        <button id="startBtn" class="btn start">START / 开始</button>
+        <button id="modeBtn" class="btn mode">BOSS MODE / 乘法</button>
+        <button id="rescueBtn" class="btn rescue">RESCUE / 救援</button>
+        <button id="resetBtn" class="btn reset">RESET / 重来</button>
+      </div>
+    </main>
+
+    <section class="hpwrap player" aria-label="Player health">
+      <div class="hpline">
+        <span class="hpname">YOU / 玩家</span>
+        <span class="hpnum"><b id="playerHpBox">100</b> / 100</span>
+      </div>
+      <div class="bar"><div id="playerBar" class="fill playerfill" style="width:100%"></div></div>
+    </section>
+
+    <div id="resultOverlay" class="overlay hidden">
+      <div class="result-card">
+        <div id="resultIcon" class="result-icon"></div>
+        <div id="resultTitle" class="result-title"></div>
+        <div id="resultDetail" class="result-detail"></div>
+        <button id="resultReset" class="btn reset">PLAY AGAIN / 再来一局</button>
+      </div>
+    </div>
+
+    <footer class="byline">HS COMPUTER SCIENCE · L10 · 数学 math · 生命 health · 连击 streak</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
