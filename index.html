@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L11 — Dice Strategy Duel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cabinet">
+    <header class="marquee">
+      <h1>DICE&nbsp;DUEL</h1>
+      <p class="subtitle">STRATEGY · 骰子策略与电脑决斗</p>
+    </header>
+
+    <section class="playerbar" aria-label="Player info">
+      <label class="field">
+        <span>NAME / 姓名</span>
+        <input id="nameInput" type="text" maxlength="20" placeholder="Your name">
+      </label>
+      <label class="field">
+        <span>CLASS / 班级</span>
+        <input id="classInput" type="text" maxlength="12" placeholder="e.g. 10A">
+      </label>
+    </section>
+
+    <!-- STEP 1: player score, bot score, turn score, target -->
+    <section class="scoreboard" aria-label="Scoreboard">
+      <div class="score you"><span class="tag">YOU / 玩家</span><span id="playerScoreBox" class="num">0</span></div>
+      <div class="score bot"><span class="tag">BOT / 电脑</span><span id="botScoreBox" class="num">0</span></div>
+      <div class="score turn"><span class="tag">TURN / 本轮</span><span id="turnScoreBox" class="num">0</span></div>
+      <div class="score target"><span class="tag">TARGET / 目标</span><span id="targetBox" class="num">30</span></div>
+    </section>
+
+    <main class="arena">
+      <div id="status" class="status idle">PRESS START — 按开始后掷骰</div>
+
+      <div id="turnBanner" class="turnbanner you">YOUR TURN / 你的回合</div>
+
+      <!-- STEP 2: dice display 1–6 -->
+      <div class="dicewrap">
+        <div id="die" class="die" aria-label="dice face">
+          <i></i><i></i><i></i>
+          <i></i><i></i><i></i>
+          <i></i><i></i><i></i>
+        </div>
+        <div class="dicemeta">
+          <span class="tag">LAST ROLL / 最近点数</span>
+          <b id="lastRollBox">–</b>
+          <span class="tag">ROLLS THIS TURN / 本轮掷骰数</span>
+          <b id="rollsBox">0</b>
+        </div>
+      </div>
+
+      <!-- STEP 1 + 3: roll / hold buttons -->
+      <div class="controls main">
+        <button id="rollBtn" class="btn roll" disabled>ROLL / 掷骰</button>
+        <button id="holdBtn" class="btn hold" disabled>HOLD / 保存</button>
+      </div>
+
+      <div class="controls util">
+        <button id="startBtn" class="btn start">START / 开始</button>
+        <button id="diffBtn" class="btn diff">BOT: EASY / 简单</button>
+        <button id="rescueBtn" class="btn rescue">RESCUE / 救援</button>
+        <button id="resetBtn" class="btn reset">RESET / 重来</button>
+      </div>
+
+      <p class="rule">
+        Roll 1–6. Roll a <b>1</b> and the turn score is lost. HOLD banks the turn score and passes the turn.
+        First to <b>30</b> wins.<br>
+        掷 1–6；掷到 <b>1</b> 本轮分清零；HOLD 把本轮分存入总分并交出回合；先到 <b>30</b> 分者胜。
+      </p>
+    </main>
+
+    <div id="resultOverlay" class="overlay hidden">
+      <div class="result-card">
+        <div id="resultIcon" class="result-icon"></div>
+        <div id="resultTitle" class="result-title"></div>
+        <div id="resultDetail" class="result-detail"></div>
+        <button id="resultReset" class="btn reset">PLAY AGAIN / 再来一局</button>
+      </div>
+    </div>
+
+    <footer class="byline">HS COMPUTER SCIENCE · L11 · 骰子 dice · 风险 risk · 保存 hold</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
