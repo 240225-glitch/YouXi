@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L12 — Word Scramble Bot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cabinet">
+    <header class="marquee">
+      <h1>WORD&nbsp;SCRAMBLE</h1>
+      <p class="subtitle">RACE THE BOT · 打乱单词与电脑竞速</p>
+    </header>
+
+    <section class="playerbar" aria-label="Player info">
+      <label class="field">
+        <span>NAME / 姓名</span>
+        <input id="nameInput" type="text" maxlength="20" placeholder="Your name">
+      </label>
+      <label class="field">
+        <span>CLASS / 班级</span>
+        <input id="classInput" type="text" maxlength="12" placeholder="e.g. 10A">
+      </label>
+    </section>
+
+    <!-- STEP 1: scoreboard — round, player score, bot score, clock -->
+    <section class="scoreboard" aria-label="Scoreboard">
+      <div class="score round"><span class="tag">ROUND / 回合</span><span id="roundBox" class="num">0</span></div>
+      <div class="score you"><span class="tag">YOU / 玩家</span><span id="playerScoreBox" class="num">0</span></div>
+      <div class="score bot"><span class="tag">BOT / 电脑</span><span id="botScoreBox" class="num">0</span></div>
+      <div class="score clock"><span class="tag">TIME / 时间</span><span id="timeBox" class="num">–</span></div>
+    </section>
+
+    <main class="arena">
+      <div id="status" class="status idle">PRESS START — 按开始后打乱单词</div>
+
+      <!-- STEP 4: the bot pressure timer bar -->
+      <div class="timerwrap" aria-label="Bot timer">
+        <div id="timerBar" class="timerbar"></div>
+      </div>
+
+      <!-- STEP 2: scrambled word + clue + answer input -->
+      <div id="clueBox" class="clue">CLUE / 提示词 will appear here</div>
+      <div id="scrambleBox" class="scramble">— — —</div>
+
+      <div class="answerrow">
+        <input id="answerInput" class="answer" type="text" maxlength="24"
+               autocomplete="off" autocapitalize="off" spellcheck="false"
+               placeholder="type the word / 输入单词" disabled>
+        <button id="submitBtn" class="btn submit" disabled>SUBMIT / 提交</button>
+      </div>
+
+      <div class="controls util">
+        <button id="startBtn" class="btn start">START / 开始</button>
+        <button id="hintBtn" class="btn hint" disabled>HINT −3 / 提示</button>
+        <button id="diffBtn" class="btn diff">BOT: EASY / 简单</button>
+        <button id="rescueBtn" class="btn rescue">RESCUE / 救援</button>
+        <button id="resetBtn" class="btn reset">RESET / 重来</button>
+      </div>
+
+      <p class="rule">
+        Unscramble the word before the timer hits <b>0</b>. A quick solve scores <b>2</b>, a late one <b>1</b>, the bot scores <b>1</b> on a timeout.
+        First to <b>5</b> wins. HINT reveals the first letter but costs <b>3</b> points.<br>
+        在计时器归零前还原单词。答得快 <b>2</b> 分，答得慢 <b>1</b> 分，超时电脑得 <b>1</b> 分。先到 <b>5</b> 分者胜。HINT 显示首字母但扣 <b>3</b> 分。
+      </p>
+    </main>
+
+    <div id="resultOverlay" class="overlay hidden">
+      <div class="result-card">
+        <div id="resultIcon" class="result-icon"></div>
+        <div id="resultTitle" class="result-title"></div>
+        <div id="resultDetail" class="result-detail"></div>
+        <button id="resultReset" class="btn reset">PLAY AGAIN / 再来一局</button>
+      </div>
+    </div>
+
+    <footer class="byline">HS COMPUTER SCIENCE · L12 · 单词 word · 打乱 scramble · 提示 hint</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
